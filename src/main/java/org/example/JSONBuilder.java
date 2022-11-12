@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.io.*;
 import java.util.List;
 
-public class JSONBuilder implements FileBuilder{
+public class JSONBuilder implements FileBuilder {
     @Override
     public void build(List<Book> l) throws IOException {
         JFileChooser f = new JFileChooser();

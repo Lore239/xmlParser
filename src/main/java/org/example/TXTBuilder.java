@@ -1,13 +1,12 @@
 package org.example;
 
 import javax.swing.*;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 
-public class TXTBuilder implements FileBuilder{
+public class TXTBuilder implements FileBuilder {
     @Override
     public void build(List<Book> l) throws FileNotFoundException, UnsupportedEncodingException {
         JFileChooser f = new JFileChooser();
