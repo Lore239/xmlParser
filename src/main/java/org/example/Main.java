@@ -11,36 +11,15 @@ import java.util.List;
 
 
 public class Main {
-    public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+    public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, ParserConfigurationException, SAXException, IOException, InvocationTargetException, NoSuchMethodException {
         SAXParserFactory factory = SAXParserFactory.newInstance();
+        SAXParser saxParser = factory.newSAXParser();
+        PrintAllHandler handler = new PrintAllHandler();
+        saxParser.parse("src/main/resources/catalogo_libri.xml", handler);
 
-        try {
-            SAXParser saxParser = factory.newSAXParser();
-
-            PrintAllHandler handler = new PrintAllHandler();
-
-            saxParser.parse("src/main/resources/catalogo_libri.xml", handler);
-
-            List<Book> result = handler.getResult();
-//            for(Book i : result){
-//                System.out.println(i.toString());
-//            }
-
-            FileBuilder impl = FabbricaFile.getInstance().creaFileBuilder();
-            impl.build(result);
-
-
-        } catch (ParserConfigurationException | SAXException | IOException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            throw new RuntimeException(e);
-        } catch (NoSuchMethodException e) {
-            throw new RuntimeException(e);
-        }
+        List<Book> result = handler.getResult();
+        FileBuilder impl = FabbricaFile.getInstance().creaFileBuilder();
+        impl.build(result);
 
     }
-
-
-
-
 }
