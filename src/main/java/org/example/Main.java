@@ -18,8 +18,7 @@ public class Main {
         saxParser.parse("src/main/resources/catalogo_libri.xml", handler);
 
         List<Book> result = handler.getResult();
-        FileBuilder impl = FabbricaFile.getInstance().creaFileBuilder();
+        FileBuilder impl = FabbricaFile.getInstance().creaFabbrica();
         impl.build(result);
-
     }
 }

@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.reflect.InvocationTargetException;
 
-public class FabbricaFile {
+public class FabbricaFile {//fabbrica astratta
     private static FabbricaFile inst = null;
 
     public static FabbricaFile getInstance() {
@@ -22,7 +22,7 @@ public class FabbricaFile {
         nomeClasse = JOptionPane.showInputDialog("Nome dell'implementazione");
     }
 
-    public FileBuilder creaFileBuilder() throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
+    public FileBuilder creaFabbrica() throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
         return (FileBuilder) Class.forName("org.example." + nomeClasse).getDeclaredConstructor().newInstance();
 
     }
